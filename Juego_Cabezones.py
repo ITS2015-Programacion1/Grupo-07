@@ -30,7 +30,7 @@ class SaltarUnaVez(pilas.comportamientos.Comportamiento):
         self.velocidad -= 0.3
 
         if self.receptor.y <= self.suelo:
-            self.velocidad_aux /= 2.0
+            self.velocidad_aux /= 3.5
             self.velocidad = self.velocidad_aux
 
             if self.velocidad_aux <= 1:
@@ -41,26 +41,42 @@ class SaltarUnaVez(pilas.comportamientos.Comportamiento):
                 self.receptor.saltando = False
                 return True
 
+teclas = {
+            pilas.simbolos.a: 'izquierda',
+            pilas.simbolos.d: 'derecha',
+            pilas.simbolos.w: 'arriba',
+            pilas.simbolos.s: 'abajo',
+            pilas.simbolos.ESPACIO: 'boton',
+        }
+mi_control = pilas.control.Control(teclas)
+"""Del ejemplo 'control_personalizado.py'"""
+
+
 
 class AceitunaConControles(pilasengine.actores.aceituna.Aceituna):
 
     def iniciar(self):
         self.imagen = "aceituna.png"
         self.escala = 1.2
+
         self.saltando = False
 
-    def actualizar(self):
-       
-        if self.pilas.simbolos.a:
-                        
-            self.x -= 2
-        
-        elif self.pilas.simbolos.d:
-            self.x += 2
 
-        if self.pilas.simbolos.w:
+
+    def actualizar(self):
+        if mi_control.izquierda:
+            self.x -= 4
+
+        elif mi_control.derecha:
+            self.x += 4
+            
+        elif mi_control.arriba:
+            self.y +=1
             if not self.saltando:
                 self.hacer("SaltarUnaVez")
+        elif mi_control.abajo:	
+            self.y -=1
+
 
 
 
@@ -87,6 +103,8 @@ class MonoConControles(pilasengine.actores.mono.Mono):
         if self.pilas.escena_actual().control.arriba:
             if not self.saltando:
                 self.hacer("SaltarUnaVez")
+
+
 
 pilas.comportamientos.vincular(SaltarUnaVez)
 mono_con_controles = MonoConControles(pilas)
