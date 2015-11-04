@@ -5,6 +5,7 @@ Nustro juego consiste un un simple partido de futbol con dos jugadores, cuyo obj
 ## Realease 0.1 
 Esta primera version contiene los dos personajes, uno que se mueve hacia derecha e izquierda y salta y se controla con las flechas, y otro con los mismos movimientos pero controlados por las flechas "w", "a", "s" y "d". 
 Se modifico la velocidad y magnitud del salto y se quito el rebote que hacia al caer el personaje.
+## Realase 0.2
 
 
 
