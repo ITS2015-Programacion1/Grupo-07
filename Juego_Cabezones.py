@@ -58,7 +58,7 @@ class AceitunaConControles(pilasengine.actores.aceituna.Aceituna):
     def iniciar(self):
         self.imagen = "aceituna.png"
         self.escala = 1.2
-
+	    aceituna_con_controles.y -= 200
         self.saltando = False
 
 
@@ -89,6 +89,7 @@ class MonoConControles(pilasengine.actores.mono.Mono):
     def iniciar(self):
         self.imagen = "mono.png"
         self.escala = .4
+        aceituna_con_controles.y -= 200
         self.radio_de_colision=15
         
 

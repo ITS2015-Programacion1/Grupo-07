@@ -30,7 +30,7 @@ class SaltarUnaVez(pilas.comportamientos.Comportamiento):
         self.velocidad -= 0.3
 
         if self.receptor.y <= self.suelo:
-            self.velocidad_aux /= 1.5
+            self.velocidad_aux /= 3.5
             self.velocidad = self.velocidad_aux
 
             if self.velocidad_aux <= 1:
