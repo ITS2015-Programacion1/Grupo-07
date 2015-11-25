@@ -12,6 +12,7 @@ fondo_personalizado = pilas.actores.MapaTiled('es.tmx')
 pilas.fisica.eliminar_paredes()
 pilas.fisica.eliminar_suelo()
 
+
 class SaltarUnaVez(pilas.comportamientos.Comportamiento):
     '''Realiza un salto, cambiando los atributos 'y'.'''
 
@@ -56,6 +57,7 @@ teclas = {
 
 mi_control = pilas.control.Control(teclas)
 """Del ejemplo 'control_personalizado.py'"""
+
 
 
 
@@ -154,8 +156,6 @@ class Pelota(pilasengine.actores.Actor):
 
 Futbol = Pelota(pilas)
 Futbol.aprender(pilas.habilidades.RebotarComoPelota)
-
-
 #La siguiente habilidad se le agrega al actor unicamente para una prueba respecto a la camara
 Futbol.aprender(pilas.habilidades.Arrastrable)
 
@@ -175,4 +175,5 @@ pilas.colisiones.agregar(aceituna, mono, Falta)
 
 
 #pilas.fisica.Rectangulo(0, -220, 635, 68, sensor=False, dinamica=False)
+
 pilas.ejecutar()
